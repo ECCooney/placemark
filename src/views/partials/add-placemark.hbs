@@ -1,0 +1,27 @@
+
+  <form action="/dashboard/addplacemark" method="POST">
+    <div class="field">
+      <label class="label">Location Name</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="Enter location title" name="title">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Associated Production</label>
+      <div class="select">
+        <select>
+          <option disabled selected>Production</option>
+          <option>Star Wars</option>
+          <option>Game of Thrones</option>
+          <option>Braveheart</option>
+        </select>
+      </div>
+    <div class="field">
+      <label class="label">Message</label>
+      <div class="control">
+        <textarea class="textarea" placeholder="Textarea"></textarea>
+      </div>
+    </div>
+
+    <button class="button is-link">Add Location</button>
+  </form>
