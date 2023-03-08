@@ -12,6 +12,7 @@ export const UserCredentialsSpec = Joi.object()
 export const UserSpec = UserCredentialsSpec.keys({
   firstName: Joi.string().example("Homer").required(),
   lastName: Joi.string().example("Simpson").required(),
+  role: Joi.string().example("user"),
 }).label("UserDetails");
 
 export const UserSpecPlus = UserSpec.keys({
@@ -23,7 +24,11 @@ export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 
 export const PlacemarkSpec = Joi.object()
   .keys({
-    title: Joi.string().required().example("Beethoven Sonatas"),
+    name: Joi.string().required().example("Skellig Michael"),
+    description: Joi.string().required(),
+    category: Joi.string().required(),
+    latitude: Joi.string().required(),
+    longitude: Joi.string().required(),
     userid: IdSpec,
   })
   .label("Placemark");

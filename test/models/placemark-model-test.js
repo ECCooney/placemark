@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import { db } from "../../src/models/db.js";
-import { testPlacemarks, mozart } from "../fixtures.js";
+import { testPlacemarks, trim } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 
 suite("Placemark Model tests", () => {
@@ -15,8 +15,8 @@ suite("Placemark Model tests", () => {
   });
 
   test("create a placemark", async () => {
-    const placemark = await db.placemarkStore.addPlacemark(mozart);
-    assertSubset(mozart, placemark);
+    const placemark = await db.placemarkStore.addPlacemark(trim);
+    assertSubset(trim, placemark);
     assert.isDefined(placemark._id);
   });
 
@@ -29,9 +29,9 @@ suite("Placemark Model tests", () => {
   });
 
   test("get a placemark - success", async () => {
-    const placemark = await db.placemarkStore.addPlacemark(mozart);
+    const placemark = await db.placemarkStore.addPlacemark(trim);
     const returnedPlacemark = await db.placemarkStore.getPlacemarkById(placemark._id);
-    assertSubset(mozart, placemark);
+    assertSubset(trim, placemark);
   });
 
   test("delete One Playist - success", async () => {

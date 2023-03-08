@@ -1,10 +1,23 @@
 {{> menu active="dashboard"}}
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+        <h1 class="title is-1">Title 1</h1>
+    </div>
+  </div>
+</section>
 <div class = container>
   <div class="columns is-centered">
     {{> list-placemarks}}
   </div>
-
-  <div class="container mx-auto mt-4">
-      {{> add-placemark}}
-  <div class="card bg-base-100 shadow-xl p-10">
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <h2 class="title is-2">Add a New Location</h2>
+    </div>
+  </div>
+</section>
+<div class="container mx-auto mt-4">
+  {{> add-placemark}}
+<div class="card bg-base-100 shadow-xl p-10">
 </div>
