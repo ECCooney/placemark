@@ -1,5 +1,12 @@
+import dotenv from "dotenv";
 import { UserSpec, UserCredentialsSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
+
+const result = dotenv.config();
+if (result.error) {
+  console.log(result.error.message);
+  process.exit(1);
+}
 
 export const accountsController = {
   index: {
@@ -49,6 +56,10 @@ export const accountsController = {
       const user = await db.userStore.getUserByEmail(email);
       if (!user || user.password !== password) {
         return h.redirect("/");
+      }
+      if (user.email === "admin@onlocation.com" && user.password === "adminsecret") {
+        request.cookieAuth.set({ id: user._id });
+        return h.redirect("/admin");
       }
       request.cookieAuth.set({ id: user._id });
       return h.redirect("/dashboard");
