@@ -25,11 +25,15 @@ export const dashboardController = {
     },
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      const newPlayList = {
+      const newPlacemark = {
         userid: loggedInUser._id,
         name: request.payload.name,
+        latitude: request.payload.latitude,
+        longitude: request.payload.longitude,
+        description: request.payload.description,
+        category: request.payload.category
       };
-      await db.placemarkStore.addPlacemark(newPlayList);
+      await db.placemarkStore.addPlacemark(newPlacemark);
       return h.redirect("/dashboard");
     },
   },
