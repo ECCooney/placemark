@@ -1,5 +1,5 @@
 
-  <form action="/dashboard/addplacemark" method="POST">
+  <form action="/category/{{category._id}}/addplacemark" method="POST">
     <div class="field">  
       <label class="label">Location Name</label>
         <input class="input" type="text" placeholder="Enter Location" name="name">
@@ -26,25 +26,6 @@
         </div>
       </div>
     </div>
-    </div>
-    <div class="field">  
-      <label class="label">Associated Production</label>
-        <select class="select" name="category">
-          <option disabled selected>Select One</option>
-          <option>Star Wars</option>
-          <option>Game of Thrones</option>
-          <option>Braveheart</option>
-          <option>The Princess Bride</option>
-          <option>Saving Private Ryan</option>
-          <option>DisEnchanted</option>
-          <option>The Quiet Man</option>
-          <option>Vikings</option>
-        </select>
-    </div>
-    <div class="field">  
-      <p>To suggest a new production to add to the list, please enter it below</p>
-      <br>
-        <input class="input is-small" type="text" placeholder="Production Title">
     </div>
     <div class="field">  
       <label class="label">Description</label>

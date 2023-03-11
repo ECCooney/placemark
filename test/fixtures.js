@@ -28,10 +28,15 @@ export const testUsers = [
   }
 ];
 
+export const testCategorys = [
+  {name: "Game of Thrones"},
+  {name: "Braveheart"},
+  {name: "Vikings"}
+];
+
 export const skellig = {
   name: "Skellig Michael",
   description: "Skellig Michael has risen to dramatic prominence due to its starring role as Luke Skywalker's Island Sanctuary",
-  category: "Star Wars",
   latitude: "51.7666636",
   longitude: "-10.5333312"
 };
@@ -39,7 +44,6 @@ export const skellig = {
 export const trim = {
   name: "Trim Castle",
   description: "Trim Castle is restored to the point where you can tour the remains safely. It was used in the filming of Braveheart;",
-  category: "Braveheart",
   latitude: "53.5499978",
   longitude: "-6.78999684"
 };

@@ -1,47 +1,43 @@
-import { PlacemarkSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
+import { CategorySpec } from "../models/joi-schemas.js";
 
 export const dashboardController = {
   index: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      const placemarks = await db.placemarkStore.getUserPlacemarks(loggedInUser._id);
+      const categorys = await db.categoryStore.getUserCategorys(loggedInUser._id);
       const viewData = {
         title: "Placemark Dashboard",
         user: loggedInUser,
-        placemarks: placemarks,
+        categorys: categorys,
       };
       return h.view("dashboard-view", viewData);
     },
   },
 
-  addPlacemark: {
+  addCategory: {
     validate: {
-      payload: PlacemarkSpec,
+      payload: CategorySpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
-        return h.view("dashboard-view", { title: "Add Placemark error", errors: error.details }).takeover().code(400);
+        return h.view("dashboard-view", { title: "Add Category error", errors: error.details }).takeover().code(400);
       },
     },
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      const newPlacemark = {
+      const newCategory = {
         userid: loggedInUser._id,
         name: request.payload.name,
-        latitude: request.payload.latitude,
-        longitude: request.payload.longitude,
-        description: request.payload.description,
-        category: request.payload.category
       };
-      await db.placemarkStore.addPlacemark(newPlacemark);
+      await db.categoryStore.addCategory(newCategory);
       return h.redirect("/dashboard");
     },
   },
 
-  deletePlacemark: {
+  deleteCategory: {
     handler: async function (request, h) {
-      const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
-      await db.placemarkStore.deletePlacemarkById(placemark._id);
+      const category = await db.categoryStore.getCategoryById(request.params.id);
+      await db.categoryStore.deleteCategoryById(category._id);
       return h.redirect("/dashboard");
     },
   },
