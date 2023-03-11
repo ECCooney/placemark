@@ -14,6 +14,11 @@ export const placemarkMongoStore = {
     return null;
   },
 
+  async getPlacemarksByCategoryId(id) {
+    const placemarks = await Placemark.find({ categoryid: id }).lean();
+    return placemarks;
+  },
+
   async addPlacemark(placemark) {
     const newPlacemark = new Placemark(placemark);
     const placemarkObj = await newPlacemark.save();
@@ -40,7 +45,6 @@ export const placemarkMongoStore = {
   async updatePlacemark(updatedPlacemark) {
     const placemark = await Placemark.findOne({ _id: updatedPlacemark._id });
     placemark.description = updatedPlacemark.description;
-    placemark.category = updatedPlacemark.category;
     placemark.img = updatedPlacemark.img;
     await placemark.save();
   },

@@ -12,7 +12,6 @@ export const UserCredentialsSpec = Joi.object()
 export const UserSpec = UserCredentialsSpec.keys({
   firstName: Joi.string().example("Homer").required(),
   lastName: Joi.string().example("Simpson").required(),
-  role: Joi.string().example("user"),
 }).label("UserDetails");
 
 export const UserSpecPlus = UserSpec.keys({
@@ -25,10 +24,10 @@ export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 export const PlacemarkSpec = Joi.object()
   .keys({
     name: Joi.string().example("Skellig Michael").required(),
-    latitude: Joi.number().allow("").optional().example(-1.1111),
-    longitude: Joi.number().allow("").optional().example(1.1111),
-    category: Joi.string().required(),
+    latitude: Joi.number().allow("").example(-1.1111).required(),
+    longitude: Joi.number().allow("").example(-1.1111).required(),
     description: Joi.string().example("This was used in Star Wars").optional(),
+    categoryid: IdSpec,
     userid: IdSpec,
   })
   .label("Placemark");
@@ -40,3 +39,17 @@ export const PlacemarkSpecPlus = PlacemarkSpec.keys({
 
 export const PlacemarkArraySpec = Joi.array().items(PlacemarkSpecPlus).label("PlacemarkArray");
 
+export const CategorySpec = Joi.object()
+  .keys({
+    name: Joi.string().required().example("Kerry"),
+    userid: IdSpec,
+    placemarks: PlacemarkArraySpec,
+  })
+  .label("Category");
+
+export const CategorySpecPlus = CategorySpec.keys({
+   _id: IdSpec,
+  __v: Joi.number(),
+  }).label("CategoryPlus");
+
+export const CategoryArraySpec = Joi.array().items(CategorySpecPlus).label("CategoryArray");

@@ -4,9 +4,11 @@ import { imageStore } from "../models/image-store.js";
 export const placemarkController = {
   index: {
     handler: async function (request, h) {
+      const category = await db.categoryStore.getCategoryById(request.params.id);
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
       const viewData = {
         title: "Placemark",
+        category: category,
         placemark: placemark,
       };
       return h.view("placemark-view", viewData);

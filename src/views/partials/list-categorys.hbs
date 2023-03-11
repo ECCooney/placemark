@@ -1,0 +1,30 @@
+{{#each categorys}}
+<div class="column is-one-third">
+  <div class="card w-72 bg-base-100 shadow-x3 p-10 m-2">
+    <div class="card-image">
+    <figure class="image is-4by3">
+      <img src={{img}}>
+    </figure>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="content is-centered">
+      <h2 class="title">
+        {{name}}
+      </h2>
+    </div>
+    <footer class="card-footer">
+      <p class="card-footer-item">
+        <span>
+          <a href="/category/{{_id}}" class="button">View Details</a>
+        </span>      
+      </p>    
+      <p class="card-footer-item">
+        <span>
+          <a href="/dashboard/deletecategory/{{_id}}"class="button">Delete Production</a>
+        </span>      
+      </p> 
+    </footer>
+  </div>
+</div>
+{{/each}}
