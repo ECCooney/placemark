@@ -33,7 +33,7 @@ suite("Placemark API tests", () => {
     const response = await placemarkService.deletePlacemark(placemark._id);
     assert.equal(response.status, 204);
     try {
-      const returnedPlacemark = await placemarkService.getPlacemark(placemark.id);
+      const returnedPlacemark = await placemarkService.getPlacemarkById(placemark.id);
       assert.fail("Should not return a response");
     } catch (error) {
       assert(error.response.data.message === "No Placemark with this id", "Incorrect Response Message");
