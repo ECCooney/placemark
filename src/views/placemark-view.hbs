@@ -1,8 +1,12 @@
 {{> menu}}
 
-<section class="section">
-  <div class="title">
-    {{placemark.name}}
+<section class="section columns is-vcentered">
+  <div class="column has-text-centered">
+    <div class="title">
+      {{placemark.title}}
+    </div>
   </div>
-
+  <div class="column">
+    {{> placemark-image }}
+  </div>
 </section>

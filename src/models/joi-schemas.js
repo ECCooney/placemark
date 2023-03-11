@@ -24,11 +24,11 @@ export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 
 export const PlacemarkSpec = Joi.object()
   .keys({
-    name: Joi.string().required().example("Skellig Michael"),
-    description: Joi.string().required(),
+    name: Joi.string().example("Skellig Michael").required(),
+    latitude: Joi.number().allow("").optional().example(-1.1111),
+    longitude: Joi.number().allow("").optional().example(1.1111),
     category: Joi.string().required(),
-    latitude: Joi.string().required(),
-    longitude: Joi.string().required(),
+    description: Joi.string().example("This was used in Star Wars").optional(),
     userid: IdSpec,
   })
   .label("Placemark");
