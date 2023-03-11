@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 import { UserSpec, UserCredentialsSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
+
+const result = dotenv.config();
 
 export const accountsController = {
   index: {
@@ -29,12 +32,14 @@ export const accountsController = {
       return h.redirect("/");
     },
   },
+
   showLogin: {
     auth: false,
     handler: function (request, h) {
       return h.view("login-view", { title: "Login to Placemark" });
     },
   },
+
   login: {
     auth: false,
     validate: {
@@ -47,8 +52,14 @@ export const accountsController = {
     handler: async function (request, h) {
       const { email, password } = request.payload;
       const user = await db.userStore.getUserByEmail(email);
+      const adminEmail = process.env.admin_email
+      const adminPassword = process.env.admin_password
       if (!user || user.password !== password) {
         return h.redirect("/");
+      }
+      if (user.email === adminEmail && user.password === adminPassword) {
+        request.cookieAuth.set({ id: user._id });
+        return h.redirect("/admin");
       }
       request.cookieAuth.set({ id: user._id });
       return h.redirect("/dashboard");

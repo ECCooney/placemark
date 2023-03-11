@@ -48,7 +48,7 @@ export const placemarkService = {
     return res.data;
   },
 
-  async getPlacemark(id) {
+  async getPlacemarkById(id) {
     const res = await axios.get(`${this.placemarkUrl}/api/placemarks/${id}`);
     return res.data;
   },

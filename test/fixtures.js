@@ -46,12 +46,12 @@ export const trim = {
 
 export const testPlacemarks = [
   {
-    name: "Skellig Michael"
+    name: "SkelligMichael"
   },
   {
-    name: "Trim Castle"
+    name: "TrimCastle"
   },
   {
-    name: "The Dark Hedges"
+    name: "TheDark Hedges"
   }
 ];
