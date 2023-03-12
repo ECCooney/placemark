@@ -27,6 +27,7 @@ export const webRoutes = [
 
   { method: "GET", path: "/placemark/{id}", config: placemarkController.index },
   { method: "POST", path: "/placemark/{id}/uploadimage", config: placemarkController.uploadImage },
+  { method: "POST", path: "/placemark/{id}/updateplacemark/{placeid}", config: placemarkController.updatePlacemark },
 
   { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
 

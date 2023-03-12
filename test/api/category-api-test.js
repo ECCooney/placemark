@@ -2,7 +2,7 @@ import { EventEmitter } from "events";
 import { assert } from "chai";
 import { placemarkService } from "./placemark-service.js";
 import { assertSubset } from "../test-utils.js";
-import { gameOf, maggie, testCategorys } from "../fixtures.js";
+import { gameOf, maggie, maggieCredentials, testCategorys } from "../fixtures.js";
 
 EventEmitter.setMaxListeners(25);
 
@@ -12,11 +12,11 @@ suite("Category API tests", () => {
   setup(async () => {
     placemarkService.clearAuth();
     user = await placemarkService.createUser(maggie);
-    await placemarkService.authenticate(maggie);
+    await placemarkService.authenticate(maggieCredentials);
     await placemarkService.deleteAllCategorys();
     await placemarkService.deleteAllUsers();
     user = await placemarkService.createUser(maggie);
-    await placemarkService.authenticate(maggie);
+    await placemarkService.authenticate(maggieCredentials);
     gameOf.userid = user._id;
   });
 

@@ -1,0 +1,36 @@
+ <form action="/placemark/{{category._id}}/updateplace/{{place._id}}" method="POST">
+    <div class="field">  
+      <label class="label">Location Name</label>
+        <input class="input" type="text" placeholder={{placemark.name}} disabled>
+    </div>
+    <div class = "field">
+      <label class="label">Coordinates </label>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <input class="input" type="text" placeholder={{placemark.latitude}} disabled>
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <input class="input" type="text" placeholder={{placemark.longitude}} disabled>
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="field">  
+      <label class="label">Description</label>
+        <textarea class="textarea" type="text" placeholder="Please enter an updated description of the filming location" name="description"></textarea>
+    </div>
+    <button class="button is-link is-danger">Update Location Description</button>
+  </form>
+  <br>
+  <br>

@@ -1,49 +1,47 @@
 {{#each categorys}}
 <div class="column is-one-third">
+  
   <div class="card w-72 bg-base-100 shadow-lg p-10 m-2">
     <div class="card-image">
-    <figure class="image is-4by3">
+    <figure class="image is-square">
       <img src={{img}}>
     </figure>
     </div>
-  </div>
-  <div class="card-content">
-    <div class="content is-centered">
-      <h2 class="title">
-        {{name}}
-      </h2>
-    </div>
     <div class="card-content">
-      <h2>Add Production Image</h2>
-    <form action="/category/{{_id}}/uploadimage" method="POST" enctype="multipart/form-data">
-      <div id="file-select" class="file has-name is-fullwidth">
-        <label class="file-label"> <input class="file-input" name="imagefile" type="file" name="resume" accept="image/png, image/jpeg">
-          <span class="file-cta">
-            <span class="file-icon">
-              <i class="fas fa-upload"></i>
-            </span>
-            <span class="file-label">
-              Choose a file…
-            </span>
-           </span>
-          <span class="file-name"></span>
-        </label>
-        <button type="submit" class="button is-info is-danger">Upload</button>
+      <div class="title is-centered">
+          {{name}}
       </div>
-    </form>
-  </div>
-    <footer class="card-footer">
-      <p class="card-footer-item">
-        <span>
-          <a href="/category/{{_id}}" class="button">View Details</a>
-        </span>      
-      </p>    
-      <p class="card-footer-item">
-        <span>
-          <a href="/dashboard/deletecategory/{{_id}}"class="button">Delete Production</a>
-        </span>      
-      </p> 
-    </footer>
+      <div>
+          <form action="/category/{{_id}}/uploadimage" method="POST" enctype="multipart/form-data">
+            <div id="file-select" class="file has-name is-fullwidth">
+              <label class="file-label"> <input class="file-input" name="imagefile" type="file" name="resume" accept="image/png, image/jpeg">
+              <span class="file-cta">
+              <span class="file-icon">
+              <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Choose an image..
+              </span>
+              </span>
+              <span class="file-name"></span>
+              </label>
+              <button type="submit" class="button is-info is-danger">Upload</button>
+            </div>
+          </form>
+      </div>
+      <footer class="card-footer">
+        <p class="card-footer-item">
+          <span>
+            <a href="/category/{{_id}}" class="button">View Locations</a>
+          </span>      
+        </p>    
+        <p class="card-footer-item">
+          <span>
+            <a href="/dashboard/deletecategory/{{_id}}"class="button">Delete Production</a>
+          </span>      
+        </p> 
+      </footer>
+   </div>
   </div>
 </div>
 {{/each}}
