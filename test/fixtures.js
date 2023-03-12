@@ -28,6 +28,10 @@ export const testUsers = [
   }
 ];
 
+export const gameOf = {
+  name: "Game of Thrones"
+};
+
 export const testCategorys = [
   {name: "Game of Thrones"},
   {name: "Braveheart"},

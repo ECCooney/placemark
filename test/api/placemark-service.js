@@ -52,6 +52,31 @@ export const placemarkService = {
     const res = await axios.get(`${this.placemarkUrl}/api/placemarks/${id}`);
     return res.data;
   },
+
+  async createCategory(category) {
+    const res = await axios.post(`${this.placemarkUrl}/api/categorys`, category);
+    return res.data;
+  },
+
+  async deleteAllCategorys() {
+    const response = await axios.delete(`${this.placemarkUrl}/api/categorys`);
+    return response.data;
+  },
+
+  async deleteCategory(id) {
+    const response = await axios.delete(`${this.placemarkUrl}/api/categorys/${id}`);
+    return response;
+  },
+
+  async getAllCategorys() {
+    const res = await axios.get(`${this.placemarkUrl}/api/categorys`);
+    return res.data;
+  },
+
+  async getCategoryById(id) {
+    const res = await axios.get(`${this.placemarkUrl}/api/categorys/${id}`);
+    return res.data;
+  },
   async authenticate(user) {
     const response = await axios.post(`${this.placemarkUrl}/api/users/authenticate`, user);
     axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
