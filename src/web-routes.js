@@ -19,6 +19,7 @@ export const webRoutes = [
   { method: "GET", path: "/category/{id}", config: categoryController.index },
   { method: "POST", path: "/category/{id}/addplacemark", config: categoryController.addPlacemark },
   { method: "GET", path: "/category/{id}/deleteplacemark/{placeid}", config: categoryController.deletePlacemark },
+  { method: "POST", path: "/category/{id}/uploadimage", config: categoryController.uploadImage },
 
   { method: "GET", path: "/dashboard", config: dashboardController.index },
   { method: "POST", path: "/dashboard/addcategory", config: dashboardController.addCategory },

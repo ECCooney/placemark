@@ -1,12 +1,43 @@
 {{> menu}}
 
-<section class="hero">
-  <div class="hero-body has-text-centered">
+<section class="hero is-danger">
+  <div class="hero-body">
     <p class="title">
-      Admin Dashboard </p>
-    <p class="box">
-     <h1>Total Number of Users in Database : {{users.length}} </h1>
+        Admin Dashboard
     </p>
   </div>
-  <div class="hero-body has-text-centered">{{> list-users}}</div>
 </section>
+<br>
+<br>
+<div class = container>
+  <div class="columns">
+    <div class="column is-half has-text-centered">
+      <h1 class="title">User Overview</h1>
+      <h1>Total Number of Users in Database : {{users.length}} </h1>
+      <h1>Total Number of Active Users : </h1>
+      <h1>Logins in last week : </h1>
+    </div>
+    <div class="column is-half has-text-centered">
+      <h1 class="title">Content Overview</h1>
+      <h1>Total Number of Categories in Database : {{categorys.length}} </h1>
+      <h1>Total Number of Unique Categories in Database : </h1>
+      <h1>Total Number of Locations Stored: {{placemarks.length}} </h1>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<section class="hero is-danger is-small">
+  <div class="hero-body">
+    <p class="title">
+        User List
+    </p>
+  </div>
+</section>
+<br>
+<div class = container>
+  <div>
+    {{> list-users}}
+  </div>
+</div>
+<br>
