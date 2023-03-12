@@ -24,8 +24,8 @@ export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 export const PlacemarkSpec = Joi.object()
   .keys({
     name: Joi.string().example("Skellig Michael").required(),
-    latitude: Joi.number().allow("").example(-1.1111).optional(),
-    longitude: Joi.number().allow("").example(-1.1111).optional(),
+    latitude: Joi.string().example("-1.1111").required(),
+    longitude: Joi.string().example("-1.1111").required(),
     description: Joi.string().example("This was used in Star Wars").required(),
     categoryid: IdSpec,
     userid: IdSpec,
@@ -53,3 +53,10 @@ export const CategorySpecPlus = CategorySpec.keys({
   }).label("CategoryPlus");
 
 export const CategoryArraySpec = Joi.array().items(CategorySpecPlus).label("CategoryArray");
+
+export const JwtAuth = Joi.object()
+  .keys({
+    success: Joi.boolean().example("true").required(),
+    token: Joi.string().example("eyJhbGciOiJND.g5YmJisIjoiaGYwNTNjAOhE.gCWGmY5-YigQw0DCBo").required(),
+  })
+  .label("JwtAuth");

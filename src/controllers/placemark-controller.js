@@ -1,5 +1,6 @@
 import { db } from "../models/db.js";
 import { imageStore } from "../models/image-store.js";
+import { PlacemarkSpec } from "../models/joi-schemas.js";
 
 export const placemarkController = {
   index: {
@@ -39,4 +40,24 @@ export const placemarkController = {
     },
   },
 
+  updatePlacemark: {
+    validate: {
+      payload: PlacemarkSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("placemark-view", { name: "Edit placemark error", errors: error.details }).takeover().code(400);
+      },
+    },
+    handler: async function (request, h) {
+      const placemark = await db.placemarkStore.getPlacemarkById(request.params.placemarkid);
+      const newPlacemark = {
+        name: request.payload.name,
+        description: request.payload.description,
+        latitude: request.payload.latitude,
+        longitude: request.payload.longitude,
+      };
+      await db.placemarkStore.updatePlacemark(placemark, newPlacemark);
+      return h.redirect(`/category/${request.params.id}`);
+    },
+  },
 };
