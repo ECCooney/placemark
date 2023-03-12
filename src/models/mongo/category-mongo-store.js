@@ -11,7 +11,7 @@ export const categoryMongoStore = {
     if (id) {
       const category = await Category.findOne({ _id: id }).lean();
       if (category) {
-        category.places = await placemarkMongoStore.getPlacemarksByCategoryId(category._id);
+        category.placemarks = await placemarkMongoStore.getPlacemarksByCategoryId(category._id);
       }
       return category;
     }
@@ -35,6 +35,10 @@ export const categoryMongoStore = {
     } catch (error) {
       console.log("bad id");
     }
+  },
+
+  async deleteAllCategorys() {
+    await Category.deleteMany({});
   },
 
   async updateCategory(updatedCategory) {
