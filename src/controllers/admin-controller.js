@@ -7,10 +7,14 @@ export const adminController = {
         handler: async function (request, h) {
             const loggedInUser = request.auth.credentials;
             const users = await db.userStore.getAllUsers();
+            const placemarks = await db.placemarkStore.getAllPlacemarks();
+            const categorys = await db.categoryStore.getAllCategorys();
             const viewData = {
                 title: "Admin Dashboard",
                 users: users,
-                user: loggedInUser
+                user: loggedInUser,
+                categorys: categorys,
+                placemarks: placemarks,
             };
             return h.view("admin-view", viewData);
         },
