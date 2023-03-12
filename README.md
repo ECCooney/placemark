@@ -1,8 +1,8 @@
 # placemark
 
-Hdip in Computer Science in SETU
-Module - Full Stack Web Development
-Assignment 1 - Placemark - A Point of Interest Web Application. 
+<li>Hdip in Computer Science in SETU</li>
+<li>Module - Full Stack Web Development</li>
+<li>Assignment 1 - Placemark - A Point of Interest Web Application. </li>
 
 <h2>Overview</h2>
 
