@@ -38,7 +38,7 @@ An open API is provided using Swagger.
 <li>Mongoose</li>
 <li>Cloud Atlas</li>
 <li>Cloudinary</li>
-<li>Heroku</li>
+<li>Render</li>
 <li>Glitch</li>
 
 <li>Handlebars</li>
