@@ -12,6 +12,9 @@
     "testmodels": "./node_modules/mocha/bin/_mocha --ui tdd test/models/**/*.js -exit",
     "testapi": "./node_modules/mocha/bin/_mocha --ui tdd test/api/**/*.js -exit"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wit-hdip-comp-sci-2021/placemark.git"
