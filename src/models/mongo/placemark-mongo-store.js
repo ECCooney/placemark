@@ -1,4 +1,5 @@
 import { Placemark } from "./placemark.js";
+import { Category } from "./category.js";
 
 export const placemarkMongoStore = {
   async getAllPlacemarks() {
@@ -19,7 +20,8 @@ export const placemarkMongoStore = {
     return placemarks;
   },
 
-  async addPlacemark(placemark) {
+  async addPlacemark(categoryId, placemark) {
+    placemark.categoryid = categoryId;
     const newPlacemark = new Placemark(placemark);
     const placemarkObj = await newPlacemark.save();
     return this.getPlacemarkById(placemarkObj._id);
