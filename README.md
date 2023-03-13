@@ -18,13 +18,30 @@ An open API is provided using Swagger.
 
 ![onlocation](https://user-images.githubusercontent.com/95751749/224562520-4c54ef27-c359-4027-be32-a7b82c63737b.PNG)
 
+<ul><h2>Features</h2></ul>
+<li>Account signup, login and update</li>
+<li>Admin account with dashboard and basic user and content metrics</li>
+<li>Category dashboard with image upload and category deletion and add category function.</li>
+<li>Category overview with list of locations in category and add location function.</li>
+<li>Location overview with image upload function, map view based on lat and long, and update function.</li>
+<li>OpenAPI with Swagger documentation and JWT security</li>
+<li>Tests for core functionality and API</li>
+
 <ul><h2>Tools and Technologies</h2></ul>
 <li>Javascript</li>
 <li>Node</li>
-<li>hapi/cookie</li>
-<li>Handlebars</li>
-<li>MongoDB</li>
-<li>Cloudinary</li>
-<li>Cloud Atlas</li>
+<li>hapi</li>
 <li>Joi - for form validation</li>
+<li>JSON Web Token</li>
+
+<li>MongoDB</li>
+<li>Mongoose</li>
+<li>Cloud Atlas</li>
+<li>Cloudinary</li>
+<li>Heroku</li>
+<li>Glitch</li>
+
+<li>Handlebars</li>
+<li>Bulma</li>
+<li>Leaflet</li>
 
