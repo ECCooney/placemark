@@ -79,4 +79,33 @@ export const accountsController = {
     }
     return { isValid: true, credentials: user };
   },
+
+  accountDetails: {
+    handler: function (request, h) {
+      const loggedInUser = request.auth.credentials;
+      const viewData = {
+        title: "Update User Details",
+        user: loggedInUser,
+      };
+      return h.view("account-view", viewData);
+    },
+  },
+
+  updateAccount: {
+    validate: {
+      payload: UserSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        const loggedInUser = request.auth.credentials;
+        return h.view("account-view", { title: "Update user error", user: loggedInUser, errors: error.details }).takeover().code(400);
+      },
+    },
+    handler: async function (request, h) {
+      const updatedUser = request.payload;
+      const loggedInUser = request.auth.credentials;
+      await db.userStore.updateUser(loggedInUser, updatedUser);
+      return h.redirect("/account");
+    },
+  },
+
 };

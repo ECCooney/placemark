@@ -24,21 +24,18 @@ export const categoryController = {
       payload: PlacemarkSpec,
       options: { abortEarly: false },
       failAction: async function (request, h, error) {
-        const category = await db.categoryStore.getCategoryById(request.params.id);
-        return h.view("category-view", { name: "Add placemark error", category, errors: error.details }).takeover().code(400);
+        return h.view("category-view", { name: "Add placemark error", errors: error.details }).takeover().code(400);
       },
     },
     handler: async function (request, h) {
-      const loggedInUser = request.auth.credentials;
       const category = await db.categoryStore.getCategoryById(request.params.id);
       const newPlacemark = {
-        userid: loggedInUser._id,
         name: request.payload.name,
         latitude: request.payload.latitude,
         longitude: request.payload.longitude,
         description: request.payload.description,
       };
-      await db.placemarkStore.addPlacemark(newPlacemark);
+      await db.placemarkStore.addPlacemark(category._id, newPlacemark);
       return h.redirect(`/category/${category._id}`);
     },
   },
@@ -46,8 +43,7 @@ export const categoryController = {
   deletePlacemark: {
     handler: async function (request, h) {
       const category = await db.categoryStore.getCategoryById(request.params.id);
-      const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
-      await db.placemarkStore.deletePlacemarkById(placemark._id);
+      await db.placemarkStore.deletePlacemarkById(request.params.placemarkid);
       return h.redirect(`/category/${category._id}`);
     },
   },

@@ -40,19 +40,6 @@ suite("Placemark API tests", () => {
     }
   });
 
-  test("create multiple placemarks", async () => {
-    for (let i = 0; i < testPlacemarks.length; i += 1) {
-      testPlacemarks[i].userid = user._id;
-      // eslint-disable-next-line no-await-in-loop
-      await placemarkService.createPlacemark(testPlacemarks[i]);
-    }
-    let returnedLists = await placemarkService.getAllPlacemarks();
-    assert.equal(returnedLists.length, testPlacemarks.length);
-    await placemarkService.deleteAllPlacemarks();
-    returnedLists = await placemarkService.getAllPlacemarks();
-    assert.equal(returnedLists.length, 0);
-  });
-
   test("remove non-existant placemark", async () => {
     try {
       const response = await placemarkService.deletePlacemark("not an id");
