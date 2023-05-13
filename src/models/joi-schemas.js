@@ -24,9 +24,8 @@ export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 export const PlacemarkSpec = Joi.object()
   .keys({
     name: Joi.string().example("Skellig Michael").required(),
-    lat: Joi.string().example("-1.1111").required(),
-    lng: Joi.string().example("-1.1111").required(),
-    area: Joi.string().example("RoI").required(),
+    latitude: Joi.string().example("-1.1111").required(),
+    longitude: Joi.string().example("-1.1111").required(),
     description: Joi.string().example("This was used in Star Wars").required(),
     categoryid: IdSpec,
     userid: IdSpec,

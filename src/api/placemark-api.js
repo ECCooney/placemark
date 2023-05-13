@@ -22,16 +22,6 @@ export const placemarkApi = {
     notes: "Returns all placemarks",
   },
 
-  findByCategory: {
-    auth: {
-      strategy: "jwt",
-    },
-    handler: async function (request, h) {
-      const placemarks = await db.placemarkStore.getPlacemarksByCategory(request.params.id);
-      return placemarks;
-    },
-  },
-
   findOne: {
     auth: {
       strategy: "jwt",
@@ -60,7 +50,8 @@ export const placemarkApi = {
     },
     handler: async function (request, h) {
       try {
-        const newPlacemark = await db.placemarkStore.addPlacemark(request.params.id, request.payload);
+        const placemark = request.payload;
+        const newPlacemark = await db.placemarkStore.addPlacemark(placemark);
         if (newPlacemark) {
           return h.response(newPlacemark).code(201);
         }

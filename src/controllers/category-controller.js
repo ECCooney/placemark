@@ -31,9 +31,8 @@ export const categoryController = {
       const category = await db.categoryStore.getCategoryById(request.params.id);
       const newPlacemark = {
         name: request.payload.name,
-        lat: request.payload.lat,
-        lng: request.payload.lng,
-        area: request.payload.area,
+        latitude: request.payload.latitude,
+        longitude: request.payload.longitude,
         description: request.payload.description,
       };
       await db.placemarkStore.addPlacemark(category._id, newPlacemark);

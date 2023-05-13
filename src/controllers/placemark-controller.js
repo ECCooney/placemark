@@ -53,9 +53,8 @@ export const placemarkController = {
       const newPlacemark = {
         name: request.payload.name,
         description: request.payload.description,
-        lat: request.payload.lat,
-        lng: request.payload.lng,
-        area: request.payload.area,
+        latitude: request.payload.latitude,
+        longitude: request.payload.longitude,
       };
       await db.placemarkStore.updatePlacemark(placemark, newPlacemark);
       return h.redirect(`/category/${request.params.id}`);

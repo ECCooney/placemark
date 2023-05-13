@@ -5,15 +5,14 @@ const { Schema } = Mongoose;
 const placemarkSchema = new Schema({
   name: String,  
   description: String,
-  area: String,
- // img: String,
-  lat: String,
-  lng: String,
-  category: {
+  img: String,
+  latitude: String,
+  longitude: String,
+  categoryid: {
     type: Schema.Types.ObjectId,
     ref: "Category",
   },
-  contributor: {
+  userid: {
     type: Schema.Types.ObjectId,
     ref: "User",
   },
