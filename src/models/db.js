@@ -10,9 +10,9 @@ export const db = {
   categoryStore: null,
 
   init(storeType) {
-    this.userStore = userMongoStore;
-    this.placemarkStore = placemarkMongoStore;
-    this.categoryStore = categoryMongoStore;
-    connectMongo();
+        this.userStore = userMongoStore;
+        this.placemarkStore = placemarkMongoStore;
+        this.categoryStore = categoryMongoStore;
+        connectMongo();
   },
 };

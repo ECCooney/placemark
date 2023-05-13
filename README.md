@@ -10,7 +10,7 @@ This an early stage Point of Interest Web Application for tracking and compiling
 
 This is to be considered a core application on which to build further functionality.
 
-Users can upload images for both their categories and locations. Locations can have their descriptions updated, and for each location, a map view is generated based on latitude and longitude.
+Users can upload images for both their categories and locations. Locations can have their descriptions updated, and for each location, a map view is generated based on lat and lng.
 
 The database for this application is MongoDB and is hosted using Cloud Atlas. The images are stored in the cloud using Cloudinary.
 

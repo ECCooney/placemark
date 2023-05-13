@@ -20,7 +20,10 @@ suite("Placemark API tests", () => {
     trim.userid = user._id;
   });
 
-  teardown(async () => {});
+  teardown(async () => {
+    await placemarkService.deleteAllPlacemarks();
+    await placemarkService.deleteAllUsers();
+});
 
   test("create placemark", async () => {
     const returnedPlacemark = await placemarkService.createPlacemark(trim);
