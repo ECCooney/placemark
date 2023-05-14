@@ -13,6 +13,8 @@ export const placemarkApi = {
       return placemarks;
     },
   },
+
+  
   findByCategory: {
     auth: {
       strategy: "jwt",
@@ -47,24 +49,9 @@ export const placemarkApi = {
     },
   },
 };
-/*   find: {
-    auth: {
-      strategy: "jwt",
-    },
-    handler: async function (request, h) {
-      try {
-        const placemarks = await db.placemarkStore.getAllPlacemarks();
-        return placemarks;
-      } catch (err) {
-        return Boom.serverUnavailable("Database Error");
-      }
-    },
-    tags: ["api"],
-    response: { schema: PlacemarkArraySpec, failAction: validationError },
-    description: "Get all placemarks",
-    notes: "Returns all placemarks",
-  },
 
+
+/* 
   findOne: {
     auth: {
       strategy: "jwt",
@@ -147,4 +134,4 @@ export const placemarkApi = {
     description: "Delete all PlacemarkApi",
   },
 };
- */
+ */ 

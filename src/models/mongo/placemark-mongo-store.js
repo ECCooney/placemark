@@ -67,6 +67,7 @@ export const placemarkMongoStore = {
     const placemark = await Placemark.findOne({ _id: updatedPlacemark._id });
     placemark.name = updatedPlacemark.name;
     placemark.description = updatedPlacemark.description;
+    placemark.area= updatesPlacemark.area;
     placemark.lat = updatedPlacemark.lat;
     placemark.lng = updatedPlacemark.lng;
     placemark.img = updatedPlacemark.img;

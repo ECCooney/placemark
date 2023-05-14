@@ -5,7 +5,7 @@ const { Schema } = Mongoose;
 const placemarkSchema = new Schema({
   name: String,  
   description: String,
-  // img: String,
+  img: String,
   lat: String,
   lng: String,
   area: String,
