@@ -1,4 +1,4 @@
-export const serviceUrl = "http://localhost:3000";
+export const serviceUrl = "http://localhost:4000";
 
 export const maggie = {
   firstName: "Maggie",
@@ -46,15 +46,15 @@ export const testCategorys = [
 export const skellig = {
   name: "Skellig Michael",
   description: "Skellig Michael has risen to dramatic prominence due to its starring role as Luke Skywalker's Island Sanctuary",
-  latitude: "51.7666636",
-  longitude: "-10.5333312"
+  lat: "51.7666636",
+  lng: "-10.5333312"
 };
 
 export const trim = {
   name: "Trim Castle",
   description: "Trim Castle is restored to the point where you can tour the remains safely. It was used in the filming of Braveheart;",
-  latitude: "53.5499978",
-  longitude: "-6.78999684"
+  lat: "53.5499978",
+  lng: "-6.78999684"
 };
 
 export const testPlacemarks = [

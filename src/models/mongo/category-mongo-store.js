@@ -7,7 +7,19 @@ export const categoryMongoStore = {
     return categorys;
   },
 
-  async getCategoryById(id) {
+  async findById(id) {
+    const category = await Category.findOne({ _id: id }).lean();
+    return category;
+  },
+
+  async findByName(name) {
+    const category = await Category.findOne({
+      name,
+    });
+    return category;
+  },
+
+/*   async getCategoryById(id) {
     if (id) {
       const category = await Category.findOne({ _id: id }).lean();
       if (category) {
@@ -45,5 +57,5 @@ export const categoryMongoStore = {
     const category = await Category.findOne({ _id: updatedCategory._id });
     category.img = updatedCategory.img;
     await category.save();
-  },
+  }, */
 };
