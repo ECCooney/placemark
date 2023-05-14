@@ -4,7 +4,50 @@ import { db } from "../models/db.js";
 import { validationError } from "./logger.js";
 
 export const placemarkApi = {
-  find: {
+  findAll: {
+    auth: {
+      strategy: "jwt",
+    },
+    handler: async function (request, h) {
+      const placemarks = db.placemarkStore.getAllPlacemarks();
+      return placemarks;
+    },
+  },
+  findByCategory: {
+    auth: {
+      strategy: "jwt",
+    },
+    handler: async function (request, h) {
+      const placemarks = await db.placemarkStore.getPlacemarksByCategory(request.params.id);
+      return placemarks;
+    },
+  },
+
+  addPlacemark: {
+    auth: {
+      strategy: "jwt",
+    },
+    handler: async function (request, h) {
+      const category = await db.categoryStore.findById(request.params.id);
+      if (!category) {
+        return Boom.notFound("No Category with this id");
+      }
+      const placemark = await db.placemarkStore.addPlacemark(request.payload.name, request.payload.description, request.payload.area, request.auth.credentials, category, request.payload.lat, request.payload.lng);
+      return placemark;
+    },
+  },
+
+  deleteAll: {
+    auth: {
+      strategy: "jwt",
+    },
+    handler: async function (request, h) {
+      await db.placemarkStore.deleteAll();
+      return { success: true };
+    },
+  },
+};
+/*   find: {
     auth: {
       strategy: "jwt",
     },
@@ -104,3 +147,4 @@ export const placemarkApi = {
     description: "Delete all PlacemarkApi",
   },
 };
+ */
